@@ -3,10 +3,11 @@ import s from './OnOff.module.css'
 
 type OnOffPropsType = {
     onChange: (on: boolean) => void
+    defaultOn?: boolean
 }
 
 export function UnControlledOnOff(props: OnOffPropsType) {
-    let [on, setOn] = useState(false)
+    let [on, setOn] = useState(props.defaultOn? props.defaultOn : false)
 
     const onStyle = {
         width: '30px',
