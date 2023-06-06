@@ -3,7 +3,7 @@ import { UnControlledOnOff } from './UnControlledOnOff';
 import {useState} from "react";
 
 const meta: Meta<typeof UnControlledOnOff> = {
-    title: 'UnControlledOnOff',
+    title: 'components/UnControlledOnOff',
     component: UnControlledOnOff,
 };
 

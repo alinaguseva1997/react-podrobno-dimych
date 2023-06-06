@@ -3,7 +3,7 @@ import { OnOff } from './OnOff';
 import {useState} from "react";
 
 const meta: Meta<typeof OnOff> = {
-    title: 'OnOff',
+    title: 'components/OnOff',
     component: OnOff,
 };
 

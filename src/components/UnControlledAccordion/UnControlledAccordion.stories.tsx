@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { UnControlledAccordion } from './UnControlledAccordion';
 
 const meta: Meta<typeof UnControlledAccordion> = {
-    title: 'UnControlledAccordion',
+    title: 'components/UnControlledAccordion',
     component: UnControlledAccordion,
 };
 

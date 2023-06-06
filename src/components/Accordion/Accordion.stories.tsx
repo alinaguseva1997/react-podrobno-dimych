@@ -3,7 +3,7 @@ import { Accordion } from './Accordion';
 import {useState} from "react";
 
 const meta: Meta<typeof Accordion> = {
-    title: 'Accordion',
+    title: 'components/Accordion',
     component: Accordion,
 };
 
@@ -11,10 +11,10 @@ const meta: Meta<typeof Accordion> = {
  type Story = StoryObj<typeof Accordion>;
 
 export const MenuCollapsedMode= () => <Accordion collapsed={true} titleValue={'Menu'} onClick={()=>{}} />;
-export const UsersUnCollapsedMode = () => <Accordion collapsed={false}titleValue={'Users'} onClick={ ()=>{} } />;
+export const UsersUnCollapsedMode = () => <Accordion collapsed={false} titleValue={'Users'} onClick={ ()=>{} } />;
 
 export const ChangeMode = () => {
     const [value, setValue] = useState<boolean>(true)
-    return <Accordion collapsed={value} titleValue={'Users'} onClick={()=> setValue(!value)} />
+    return <Accordion collapsed={value} titleValue={'Users'} onClick={()=>setValue(!value)} />
 };
 

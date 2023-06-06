@@ -4,7 +4,7 @@ import {useState} from "react";
 import {RatingValueType} from "../../App";
 
 const meta: Meta<typeof Rating> = {
-    title: 'Rating',
+    title: 'components/Rating',
     component: Rating,
 };
 

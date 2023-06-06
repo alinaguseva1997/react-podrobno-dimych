@@ -1,6 +1,6 @@
 import React from "react";
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
     onClick: () => void
@@ -16,7 +16,7 @@ export function Accordion(props: AccordionPropsType) {
     )
 }
 
-type AccordionTitlePropsType = {
+export type AccordionTitlePropsType = {
     title: string
     onClick: () => void
 }
