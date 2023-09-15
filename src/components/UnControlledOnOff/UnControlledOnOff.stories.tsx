@@ -1,16 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { UnControlledOnOff } from './UnControlledOnOff';
-import {useState} from "react";
+import type {Meta, StoryObj} from '@storybook/react';
+import {action} from '@storybook/addon-actions'
+import {UnControlledOnOff} from "./UnControlledOnOff";
 
 const meta: Meta<typeof UnControlledOnOff> = {
-    title: 'components/UnControlledOnOff',
+    title: 'component/OnOff/UnControlledOnOff',
     component: UnControlledOnOff,
 };
+export default meta;
 
- export default meta;
- type Story = StoryObj<typeof UnControlledOnOff>;
+type Story = StoryObj<typeof UnControlledOnOff>;
 
-export const ChangeMode = () => {
-    return <UnControlledOnOff defaultOn={false} onChange={()=>{}}/>
-};
-
+export const UnControlledOnOffPrimary: Story = {
+    args: {
+        onChange: action('onChange'),
+        defaultOn: false
+    }
+} //новая версия создания истории

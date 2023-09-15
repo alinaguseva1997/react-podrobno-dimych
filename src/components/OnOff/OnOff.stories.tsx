@@ -1,20 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { OnOff } from './OnOff';
-import {useState} from "react";
+import type {Meta, StoryObj} from '@storybook/react';
+import {action} from '@storybook/addon-actions'
+import {OnOff} from "./OnOff";
 
 const meta: Meta<typeof OnOff> = {
-    title: 'components/OnOff',
+    title: 'component/OnOff/OnOff',
     component: OnOff,
 };
+export default meta;
 
- export default meta;
- type Story = StoryObj<typeof OnOff>;
+type Story = StoryObj<typeof OnOff>;
 
-export const OnMode = () => <OnOff valueOnOff={true} onClick={()=>{}} />;
-export const OffMode = () => <OnOff valueOnOff={false} onClick={ ()=>{} } />;
+export const OnOffPrimary: Story = {
+    args: {
+        valueOnOff: true
+    }
+} //новая версия создания истории
 
-export const ChangeMode = () => {
-    const [value, setValue] = useState<boolean>(true)
-    return <OnOff valueOnOff={value} onClick={setValue}/>
+const onClickCallback = action('onClick')
+
+export const On = () => {
+    return <OnOff valueOnOff={true} onClick={onClickCallback} />
 };
 
+export const Off = () => {
+    return <OnOff valueOnOff={false} onClick={onClickCallback} />
+}; // старая версия написания историй, максимально приближен к реакту

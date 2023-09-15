@@ -1,28 +1,37 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Accordion } from './Accordion';
-import {useState} from "react";
+import type {Meta, StoryObj} from '@storybook/react';
+import {Accordion} from './Accordion';
+import {action} from '@storybook/addon-actions'
 
 const meta: Meta<typeof Accordion> = {
-    title: 'components/Accordion',
+    title: 'component/Accordion/Accordion',
     component: Accordion,
 };
 
- export default meta;
- type Story = StoryObj<typeof Accordion>;
+export default meta;
 
- const callback = ()=>alert('accordion mode change event fired')
- const onClickCallback = () =>alert('some item was clicked')
+type Story = StoryObj<typeof Accordion>;
 
-export const MenuCollapsedMode= () => <Accordion collapsed={true} titleValue={'Menu'} onChange={ callback } onClick={onClickCallback} items = {[]}/>;
-export const UsersUnCollapsedMode = () => <Accordion collapsed={false} titleValue={'Users'} onChange={callback} onClick={onClickCallback} items = {[{title:'Dimych', value: 1}, {title: 'Valera', value: 2}, {title: 'Artem', value:3}, {title: 'Victor', value: 4}]}/>;
+const items = [
+    {title: 'react', value: 1},
+    {title: 'js', value: 2},
+    {title: 'html&css', value: 3}
+]
 
-export const ChangeMode = () => {
-    const [value, setValue] = useState<boolean>(true)
-    return <Accordion collapsed={value} titleValue={'Users'} onChange={()=>setValue(!value)} onClick={(id) =>{alert(`user with ID ${id} should be happy`)}} items = {[
-        {title:'Dimych', value: 1},
-        {title: 'Valera', value: 2},
-        {title: 'Artem', value:3},
-        {title: 'Victor', value: 4}
-    ]}/>
+export const AccordionPrimary: Story = {
+    args: {
+        items: items,
+        titleValue: 'Accordion',
+        collapsed: true
+    }
+} //новая версия создания истории
+
+const onChangeCallback = action('onChange')
+const onClickCallback = action('onClick')
+
+export const OpenedAccordion = () => {
+    return <Accordion titleValue={'Opened Accordion'} collapsed={true} onChange={onChangeCallback} items={items} onClick={onClickCallback}/>
 };
 
+export const CollapsedAccordion = () => {
+    return <Accordion titleValue={'Collapsed Accordion'} collapsed={false} onChange={onChangeCallback} items={items} onClick={onClickCallback}/>
+}; // старая версия написания историй, максимально приближен к реакту
