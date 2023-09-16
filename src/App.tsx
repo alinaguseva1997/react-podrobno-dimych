@@ -6,6 +6,7 @@ import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOf
 import {OnOff} from "./components/OnOff/OnOff";
 import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
 import {UnControlledRating} from "./components/UnControlledRating/UnControlledRating";
+import {Select} from "./components/Select/Select";
 
 
 
@@ -27,7 +28,6 @@ function App() {
 
         <UnControlledRating />
         <Accordion titleValue = {'Menu'} collapsed={accordionCollapsed} onChange = {() => setAccordionCollapsed(!accordionCollapsed)} items={[]} onClick={() => {}}/>
-
       </div>
   );
 }
