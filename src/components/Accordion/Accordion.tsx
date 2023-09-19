@@ -13,7 +13,7 @@ export type AccordionPropsType = {
     onClick: (value: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
+export const Accordion = React.memo((props: AccordionPropsType) => {
     console.log('UnControlledAccordion rendered')
     return (
         <div>
@@ -21,30 +21,30 @@ export function Accordion(props: AccordionPropsType) {
             {props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
         </div>
     )
-}
+})
 
 export type AccordionTitlePropsType = {
     title: string
     onClick: () => void
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+const AccordionTitle = React.memo((props: AccordionTitlePropsType) => {
     console.log('AccordionTitle rendered')
     return (
         <h3 onClick={()=> {props.onClick()}}>{props.title}</h3>
     )
-}
+})
 
 export type AccordionBodyPropsType = {
     items: ItemType[]
     onClick: (value: any) => void
 }
 
-function AccordionBody(props: AccordionBodyPropsType) {
+const AccordionBody = React.memo((props: AccordionBodyPropsType) => {
     console.log('AccordionBody rendered')
     return (
         <ul>
             {props.items.map((el, index) => <li onClick={()=>{props.onClick(el.value)}} key={index}>{el.title}</li>)}
         </ul>
     )
-}
+})

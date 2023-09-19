@@ -12,7 +12,7 @@ type ItemType = {
     value: any
 }
 
-export function Select(props: SelectPropsType) {
+export const Select = React.memo((props: SelectPropsType) => {
     console.log('Select rendered')
 
     const [active, setActive] = useState(false)
@@ -45,4 +45,4 @@ export function Select(props: SelectPropsType) {
         </>
 
     );
-}
+})
